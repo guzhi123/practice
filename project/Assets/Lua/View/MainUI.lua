@@ -4,17 +4,16 @@
 --- DateTime: 2023/10/26 21:22
 ---
 
-UI=CS.UnityEngine.UI
+--UI=CS.UnityEngine.UI
 MainUI = {}
 
 local this = MainUI
-this.uiName = "Canvas_Store"
-
-this.button_Store = this.root.transform.Find("Button_Store"):GetComponent(typeof(UI.Button))
-this.button_Store.onClick.AddListener(MainUI.OnButtonClick_Store())
+this.uiName = "Layout_1/Canvas_Main"
 
 function MainUI.Init(root)
     this.root = root
+    this.button_Store = this.root.transform:Find("Buttons/Button_Store"):GetComponent("Button")
+    CS.UIUtil.SetButtonEventLua(this.button_Store, this.OnButtonClick_Store)
     MainUI.OnShow()
 end
 function MainUI.OnButtonClick_Store()

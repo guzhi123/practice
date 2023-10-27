@@ -16,12 +16,13 @@ this.uiDic = {}
 this.uiRoot = nil
 
 function UISystem.Init()
+    print("UISystem.Init() ")
     this.uiDic[UIEnum.StoreUI] = StoreUI
     this.uiDic[UIEnum.MainUI] = MainUI
     --this.uiDic[uiEnum.OperatorUI] = OperatorUI
     --this.uiDic[uiEnum.SquadsUI] = SquadsUI
 
-    this.uiRoot = CS.UnityEngine.Gameobject.Find("UIRoot")
+    this.uiRoot = CS.UnityEngine.GameObject.Find("UIRoot")
     this.SetUIRoot()
     this.OpenView(UIEnum.MainUI)
 
@@ -29,7 +30,7 @@ end
 
 function UISystem.SetUIRoot()
     for key, view in pairs(this.uiDic) do
-        local root = CS.UnityEngine.Gameobject.Find(view.uiName)
+        local root = this.uiRoot.transform:Find(view.uiName).gameObject
         view.Init(root)
     end
 end

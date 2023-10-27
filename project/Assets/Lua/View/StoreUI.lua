@@ -7,17 +7,15 @@ UI=CS.UnityEngine.UI
 StoreUI = {}
 
 local this = StoreUI
-this.uiName = "Canvas_Store"
-
-this.button_Back = this.root.transform.Find("Button_Back"):GetComponent("UIButton")
-
-this.button_Back.onClick.AddListener(StoreUI.OnButtonClick_Back())
-
+this.uiName = "Layout_1/Canvas_Store"
 
 function StoreUI.Init(root)
     this.root = root
-    StoreUI.OnHide()
 
+    this.button_Back = this.root.transform:Find("Button_Back"):GetComponent("Button")
+    --this.button_Back.onClick.AddListener(StoreUI.OnButtonClick_Back)
+    CS.UIUtil.SetButtonEventLua(this.button_Back, this.OnButtonClick_Back)
+    StoreUI.OnHide()
 end
 
 function StoreUI.OnShow()

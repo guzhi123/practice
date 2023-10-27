@@ -190,6 +190,13 @@
     <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngine_ColorWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_TextWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_LayoutGroupWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ButtonWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ImageWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_Button_ButtonClickedEventWrap.cs" />
+    <Compile Include="Assets\Scripts\UIUtil.cs" />
+    <Compile Include="Assets\XLua\Gen\UIUtilWrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />

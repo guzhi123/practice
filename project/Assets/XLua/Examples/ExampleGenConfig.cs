@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using XLua;
+using UnityEngine.UI;
+using static UnityEngine.UI.Button;
 //using System.Reflection;
 //using System.Linq;
 
@@ -48,7 +50,19 @@ public static class ExampleGenConfig
                 typeof(Mathf),
                 typeof(System.Collections.Generic.List<int>),
                 typeof(Action<string>),
-                typeof(UnityEngine.Debug)
+                typeof(UnityEngine.Debug),
+
+                typeof(Button),
+                typeof(Image),
+                typeof(Text),
+                typeof(LayoutGroup),
+                typeof(ButtonClickedEvent),
+
+
+
+
+                //自定义类
+                typeof(UIUtil),
             };
 
     //C#静态调用Lua的配置（包括事件的原型），仅可以配delegate，interface

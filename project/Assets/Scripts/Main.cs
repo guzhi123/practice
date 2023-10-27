@@ -28,22 +28,15 @@ public class Main : MonoBehaviour
         LuaEnv luaEnv = new LuaEnv();
         luaEnv.AddLoader(CustomLoader_Editor);
 
-        luaEnv.DoString("require('Manager/UISystem')");
+        luaEnv.DoString("require('Main')");
+        luaEnv.DoString("Main.Init()");
 
-        luaEnv.Tick();
-        luaEnv.Dispose();
+        //luaEnv.Tick();
+        //luaEnv.Dispose();
 
     }
 
 
 }
-public static class SliderEventTestClass
-{
-    [CSharpCallLua]
-    public static List<Type> csharpCallLuaList = new List<Type>()
-    {
-        typeof(UnityAction<float>)
-    };
 
-}
 
