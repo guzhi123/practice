@@ -3,10 +3,29 @@
 --- Created by Administrator.
 --- DateTime: 2023/10/26 21:22
 ---
+
+UI=CS.UnityEngine.UI
 MainUI = {}
 
-MainUI.uiName = "Canvas_Store"
+local this = MainUI
+this.uiName = "Canvas_Store"
+
+this.button_Store = this.root.transform.Find("Button_Store"):GetComponent(typeof(UI.Button))
+this.button_Store.onClick.AddListener(MainUI.OnButtonClick_Store())
 
 function MainUI.Init(root)
+    this.root = root
+    MainUI.OnShow()
+end
+function MainUI.OnButtonClick_Store()
+    UISystem.OpenView(UIEnum.StoreUI)
+    UISystem.CloseView(UIEnum.MainUI)
+end
+function MainUI.OnShow()
+    this.root:SetActive(true)
+
+end
+function MainUI.OnHide()
+    this.root:SetActive(false)
 
 end

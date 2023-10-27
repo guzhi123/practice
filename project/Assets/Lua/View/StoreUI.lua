@@ -3,26 +3,35 @@
 --- Created by Administrator.
 --- DateTime: 2023/10/26 21:32
 ---
+UI=CS.UnityEngine.UI
 StoreUI = {}
+
 local this = StoreUI
 this.uiName = "Canvas_Store"
 
+this.button_Back = this.root.transform.Find("Button_Back"):GetComponent("UIButton")
+
+this.button_Back.onClick.AddListener(StoreUI.OnButtonClick_Back())
+
+
 function StoreUI.Init(root)
     this.root = root
-
+    StoreUI.OnHide()
 
 end
 
-function StoreUI.OnShow(root)
+function StoreUI.OnShow()
     this.root:SetActive(true)
 
 end
 
-function StoreUI.OnButton1Click()
+
+function StoreUI.OnButtonClick_Back()
     UISystem.OpenView(UIEnum.MainUI)
+    UISystem.CloseView(UIEnum.StoreUI)
 end
 
-function StoreUI.OnHide(root)
+function StoreUI.OnHide()
     this.root:SetActive(false)
 
 end

@@ -6,3 +6,5 @@
 UIEnum = {}
 UIEnum.StoreUI = "StoreUI"
 UIEnum.MainUI = "MainUI"
+UIEnum.OperatorUI = "OperatorUI"
+UIEnum.SquadsUI = "SquadsUI"

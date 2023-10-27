@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Events;
 using XLua;
 
 public class Main : MonoBehaviour
@@ -26,11 +28,22 @@ public class Main : MonoBehaviour
         LuaEnv luaEnv = new LuaEnv();
         luaEnv.AddLoader(CustomLoader_Editor);
 
-        luaEnv.DoString("require('Main')");
+        luaEnv.DoString("require('Manager/UISystem')");
 
         luaEnv.Tick();
         luaEnv.Dispose();
 
     }
 
+
 }
+public static class SliderEventTestClass
+{
+    [CSharpCallLua]
+    public static List<Type> csharpCallLuaList = new List<Type>()
+    {
+        typeof(UnityAction<float>)
+    };
+
+}
+
