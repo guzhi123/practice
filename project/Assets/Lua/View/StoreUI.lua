@@ -3,24 +3,37 @@
 --- Created by Administrator.
 --- DateTime: 2023/10/26 21:32
 ---
+require("creditStoreUI")
 UI=CS.UnityEngine.UI
 StoreUI = {}
 
 local this = StoreUI
 this.uiName = "Layout_1/Canvas_Store"
+this.uiStoreDic = {}
+this.uiStoreRoot = nil
 
 function StoreUI.Init(root)
     this.root = root
 
+    this.uiStoreDic["creditStoreUI"] = creditStoreUI
+
     this.button_Back = this.root.transform:Find("Button_Back"):GetComponent("Button")
     --this.button_Back.onClick.AddListener(StoreUI.OnButtonClick_Back)
     CS.UIUtil.SetButtonEventLua(this.button_Back, this.OnButtonClick_Back)
+
     StoreUI.OnHide()
 end
 
 function StoreUI.OnButtonClick_Back()
     UISystem.OpenView(UIEnum.MainUI)
     UISystem.CloseView(UIEnum.StoreUI)
+end
+
+function StoreUI.StoreUIRoot()
+    for key, view in pairs(this.uiStoreDic) do
+        local root = this.uiStoreRoot.transform:Find(view.uiName).gameObject
+        view.Init(root)
+    end
 end
 
 function StoreUI.OnShow()
