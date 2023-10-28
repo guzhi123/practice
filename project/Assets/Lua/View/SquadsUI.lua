@@ -4,12 +4,23 @@
 --- DateTime: 2023/10/27 16:02
 ---
 SquadsUI = {}
-this=SquadsUI
-SquadsUI.uiName = "Canvas_Squads"
-function SquadsUI.Init(root)
+local this=SquadsUI
+SquadsUI.uiName = "Layout_1/Canvas_Squads"
 
+function SquadsUI.Init(root)
     this.root = root
+
+    this.button_Back = this.root.transform:Find("Button_Back"):GetComponent("Button")
+    --this.button_Back.onClick.AddListener(StoreUI.OnButtonClick_Back)
+    CS.UIUtil.SetButtonEventLua(this.button_Back, this.OnButtonClick_Back)
+    StoreUI.OnHide()
 end
+function SquadsUI.OnButtonClick_Back()
+    UISystem.OpenView(UIEnum.MainUI)
+    UISystem.CloseView(UIEnum.SquadsUI)
+end
+
+
 function SquadsUI.OnShow()
     this.root:SetActive(true)
 end

@@ -6,8 +6,8 @@
 require("View/MainUI")
 require("View/StoreUI")
 
---require("View/OperatorUI")
---require("View/SquadsUI")
+require("View/OperatorUI")
+require("View/SquadsUI")
 
 UISystem = {}
 local this = UISystem
@@ -19,8 +19,8 @@ function UISystem.Init()
     print("UISystem.Init() ")
     this.uiDic[UIEnum.StoreUI] = StoreUI
     this.uiDic[UIEnum.MainUI] = MainUI
-    --this.uiDic[uiEnum.OperatorUI] = OperatorUI
-    --this.uiDic[uiEnum.SquadsUI] = SquadsUI
+    this.uiDic[UIEnum.OperatorUI] = OperatorUI
+    this.uiDic[UIEnum.SquadsUI] = SquadsUI
 
     this.uiRoot = CS.UnityEngine.GameObject.Find("UIRoot")
     this.SetUIRoot()

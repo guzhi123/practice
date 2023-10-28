@@ -71,6 +71,7 @@
     <Compile Include="Assets\XLua\Gen\XLuaTest_Foo2ChildWrap.cs" />
     <Compile Include="Assets\XLua\Src\MethodWarpsCache.cs" />
     <Compile Include="Assets\XLua\Gen\XLuaTest_Foo2ParentWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ButtonWrap.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngine_RayWrap.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\XLua\Src\ObjectCasters.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\XLua\Src\SignatureLoader.cs" />
+    <Compile Include="Assets\XLua\Gen\UIUtilWrap.cs" />
     <Compile Include="Assets\XLua\Gen\XLuaTest_BaseTestWrap.cs" />
     <Compile Include="Assets\XLua\Src\TypeExtensions.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
+    <Compile Include="Assets\Scripts\UIUtil.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngine_QuaternionWrap.cs" />
     <Compile Include="Assets\XLua\Src\InternalGlobals.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Assets\XLua\Src\LuaTable.cs" />
     <Compile Include="Assets\XLua\Examples\01_Helloworld\Helloworld.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ImageWrap.cs" />
     <Compile Include="Assets\XLua\Tutorial\LoadLuaScript\ByFile\ByFile.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\XLua\Gen\XLuaGenAutoRegister.cs" />
@@ -137,6 +141,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\XLua\Gen\WrapPusher.cs" />
     <Compile Include="Assets\XLua\Examples\08_Hotfix\StatefullTest.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_Button_ButtonClickedEventWrap.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngine_MathfWrap.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngine_LightWrap.cs" />
@@ -155,6 +160,7 @@
     <Compile Include="Assets\XLua\Tutorial\LoadLuaScript\ByString\ByString.cs" />
     <Compile Include="Assets\XLua\Examples\05_NoGc\NoGc.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_LayoutGroupWrap.cs" />
     <Compile Include="Assets\XLua\Gen\System_ObjectWrap.cs" />
     <Compile Include="Assets\XLua\Gen\Tutorial_CSCallLua_ItfDBridge.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
@@ -169,6 +175,7 @@
     <Compile Include="Assets\XLua\Examples\ExampleGenConfig.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngine_AnimationClipWrap.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngine_Vector4Wrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_TextWrap.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngine_Vector3Wrap.cs" />
     <Compile Include="Assets\XLua\Src\DelegateBridge.cs" />
     <Compile Include="Assets\XLua\Gen\XLuaTest_InvokeLua_ICalcBridge.cs" />
@@ -190,13 +197,6 @@
     <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngine_ColorWrap.cs" />
-    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_TextWrap.cs" />
-    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_LayoutGroupWrap.cs" />
-    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ButtonWrap.cs" />
-    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_ImageWrap.cs" />
-    <Compile Include="Assets\XLua\Gen\UnityEngine_UI_Button_ButtonClickedEventWrap.cs" />
-    <Compile Include="Assets\Scripts\UIUtil.cs" />
-    <Compile Include="Assets\XLua\Gen\UIUtilWrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />

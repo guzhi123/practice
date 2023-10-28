@@ -3,13 +3,28 @@
 --- Created by Administrator.
 --- DateTime: 2023/10/27 16:02
 ---
-OperatorUI = {}
-this=OperatorUI
-OperatorUI.uiName = "Canvas_Operator"
 
+UI=CS.UnityEngine.UI
+OperatorUI = {}
+
+local this=OperatorUI
+OperatorUI.uiName = "Layout_1/Canvas_Operator"
+
+function OperatorUI.OnButtonClick_Back()
+    UISystem.OpenView(UIEnum.MainUI)
+    UISystem.CloseView(UIEnum.OperatorUI)
+end
 function OperatorUI.Init(root)
     this.root = root
+
+    this.button_Back = this.root.transform:Find("Button_Back"):GetComponent("Button")
+    --this.button_Back.onClick.AddListener(StoreUI.OnButtonClick_Back)
+    CS.UIUtil.SetButtonEventLua(this.button_Back, this.OnButtonClick_Back)
+    StoreUI.OnHide()
 end
+
+
+
 function OperatorUI.OnShow()
     this.root:SetActive(true)
 end

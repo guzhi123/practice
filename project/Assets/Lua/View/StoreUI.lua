@@ -18,17 +18,15 @@ function StoreUI.Init(root)
     StoreUI.OnHide()
 end
 
-function StoreUI.OnShow()
-    this.root:SetActive(true)
-
-end
-
-
 function StoreUI.OnButtonClick_Back()
     UISystem.OpenView(UIEnum.MainUI)
     UISystem.CloseView(UIEnum.StoreUI)
 end
 
+function StoreUI.OnShow()
+    this.root:SetActive(true)
+
+end
 function StoreUI.OnHide()
     this.root:SetActive(false)
 
