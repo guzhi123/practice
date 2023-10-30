@@ -151,6 +151,7 @@
     <Compile Include="Assets\XLua\Gen\Tutorial_ICalcWrap.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\XLua\Src\LuaBase.cs" />
+    <Compile Include="Assets\BuyCommodities.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngine_AnimationCurveWrap.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngine_MonoBehaviourWrap.cs" />
     <Compile Include="Assets\XLua\Gen\XLuaTest_FooExtensionWrap.cs" />

@@ -3,7 +3,7 @@
 --- Created by Administrator.
 --- DateTime: 2023/10/26 21:32
 ---
-require("creditStoreUI")
+
 UI=CS.UnityEngine.UI
 StoreUI = {}
 
@@ -15,15 +15,22 @@ this.uiStoreRoot = nil
 function StoreUI.Init(root)
     this.root = root
 
-    this.uiStoreDic["creditStoreUI"] = creditStoreUI
+    this.uiStoreDic["CreditStoreUI"] = CreditStoreUI
 
     this.button_Back = this.root.transform:Find("Button_Back"):GetComponent("Button")
     --this.button_Back.onClick.AddListener(StoreUI.OnButtonClick_Back)
     CS.UIUtil.SetButtonEventLua(this.button_Back, this.OnButtonClick_Back)
 
-    StoreUI.OnHide()
+    --StoreUI.OnHide()
+    StoreUI.SetUIRoot()
 end
 
+function StoreUI.SetUIRoot()
+    for key, view in pairs(this.uiStoreDic) do
+        local root = this.root.transform:Find(view.uiName).gameObject
+        view.Init(root)
+    end
+end
 function StoreUI.OnButtonClick_Back()
     UISystem.OpenView(UIEnum.MainUI)
     UISystem.CloseView(UIEnum.StoreUI)
@@ -31,7 +38,7 @@ end
 
 function StoreUI.StoreUIRoot()
     for key, view in pairs(this.uiStoreDic) do
-        local root = this.uiStoreRoot.transform:Find(view.uiName).gameObject
+        local root = this.root.transform:Find(view.uiName).gameObject
         view.Init(root)
     end
 end

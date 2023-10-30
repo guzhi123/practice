@@ -20,7 +20,7 @@ function OperatorUI.Init(root)
     this.button_Back = this.root.transform:Find("Button_Back"):GetComponent("Button")
     --this.button_Back.onClick.AddListener(StoreUI.OnButtonClick_Back)
     CS.UIUtil.SetButtonEventLua(this.button_Back, this.OnButtonClick_Back)
-    StoreUI.OnHide()
+    --StoreUI.OnHide()
 end
 
 

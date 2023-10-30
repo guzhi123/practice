@@ -9,6 +9,7 @@ require("View/StoreUI")
 require("View/OperatorUI")
 require("View/SquadsUI")
 
+require("View/SubViews/CreditStoreUI")
 UISystem = {}
 local this = UISystem
 
