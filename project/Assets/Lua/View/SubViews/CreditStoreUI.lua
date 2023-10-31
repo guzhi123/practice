@@ -22,9 +22,6 @@ function CreditStoreUI.Init(root)
 end
 
 
-
-
-
 function CreditStoreUI.OnButtonClick_Credit()
 
     if this.ifCommodityPrefab then
@@ -32,14 +29,17 @@ function CreditStoreUI.OnButtonClick_Credit()
         for i = 1, 10, 1 do
             local go = CS.UnityEngine.GameObject.Instantiate(this.commodityPrefab, this.commodities.transform)
             local button = go.transform:Find("Button_commodity"):GetComponent("Button")
-            CS.UIUtil.SetButtonEventLua(button, function() this.OnButtonClick_Commodities(go) end)
+            local img = go.transform:Find("Image_completed").gameObject
+
+            CS.UIUtil.SetButtonEventLua(button, function() this.OnButtonClick_Commodities(img) end)
         end
     end
 
 
 end
-function CreditStoreUI.OnButtonClick_Commodities(go)
-    go:SetActive(false)
+function CreditStoreUI.OnButtonClick_Commodities(img)
+    img:SetActive(true)
+    CS.UnityEngine.GameObject.Instantiate(this.commodityPrefab, BagUI.articlesParent)
 end
 
 
