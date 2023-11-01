@@ -27,6 +27,8 @@ function TerminalUI.Init(root)
         CS.UIUtil.SetButtonEventLua(button, function() this.OnButtonClick_Levels(data) end)
     end
     this.UnLockLevel(1)
+    this.button_Back = this.root.transform:Find("Button_Back"):GetComponent("Button")
+    CS.UIUtil.SetButtonEventLua(this.button_Back, this.OnButtonClick_Back)
 end
 
 function TerminalUI.OnButtonClick_Levels(data)
@@ -38,6 +40,13 @@ function TerminalUI.UnLockLevel(number)
         this.Levels[number].go.gameObject:SetActive(true);
     end
 end
+
+function TerminalUI.OnButtonClick_Back()
+    UISystem.OpenView(UIEnum.MainUI)
+    UISystem.CloseView(UIEnum.TerminalUI)
+end
+
+
 
 function TerminalUI.OnShow()
     this.root:SetActive(true)

@@ -19,6 +19,7 @@ public class GenerateCommodity : MonoBehaviour
         
     }
     
+    
     private void generateCommodity()
     {
         if (ifCommodityPrefab)

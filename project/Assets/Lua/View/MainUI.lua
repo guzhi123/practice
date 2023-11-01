@@ -18,24 +18,35 @@ function MainUI.Init(root)
     CS.UIUtil.SetButtonEventLua(this.button_Operator, this.OnButtonClick_Operator)
     this.button_Squads = this.root.transform:Find("Buttons/Button_Squads"):GetComponent("Button")
     CS.UIUtil.SetButtonEventLua(this.button_Squads, this.OnButtonClick_Squads)
+    this.button_Terminal = this.root.transform:Find("Buttons/Button_Terminal"):GetComponent("Button")
+    CS.UIUtil.SetButtonEventLua(this.button_Terminal, this.OnButtonClick_Terminal)
     MainUI.OnShow()
 end
 function MainUI.OnButtonClick_Store()
     UISystem.OpenView(UIEnum.StoreUI)
     UISystem.CloseView(UIEnum.MainUI)
 end
+
 function MainUI.OnButtonClick_Operator()
     UISystem.OpenView(UIEnum.OperatorUI)
     UISystem.CloseView(UIEnum.MainUI)
 end
+
 function MainUI.OnButtonClick_Squads()
     UISystem.OpenView(UIEnum.SquadsUI)
     UISystem.CloseView(UIEnum.MainUI)
 end
+
+function MainUI.OnButtonClick_Terminal()
+    UISystem.OpenView(UIEnum.TerminalUI)
+    UISystem.CloseView(UIEnum.MainUI)
+end
+
 function MainUI.OnShow()
     this.root:SetActive(true)
 
 end
+
 function MainUI.OnHide()
     this.root:SetActive(false)
 
