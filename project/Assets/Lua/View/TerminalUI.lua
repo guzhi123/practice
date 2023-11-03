@@ -4,7 +4,7 @@
 --- DateTime: 2023/10/31 19:05
 ---
 
-TerminalUI={}
+TerminalUI = UIBase:new()
 local this=TerminalUI
 
 TerminalUI.uiName = "Layout_1/Canvas_Terminal"
@@ -48,10 +48,3 @@ end
 
 
 
-function TerminalUI.OnShow()
-    this.root:SetActive(true)
-end
-
-function TerminalUI.OnHide()
-    this.root:SetActive(false)
-end

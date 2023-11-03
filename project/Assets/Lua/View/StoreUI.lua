@@ -5,7 +5,7 @@
 ---
 
 UI=CS.UnityEngine.UI
-StoreUI = {}
+StoreUI = UIBase:new()
 
 local this = StoreUI
 this.uiName = "Layout_1/Canvas_Store"
@@ -16,6 +16,7 @@ function StoreUI.Init(root)
     this.root = root
 
     this.uiStoreDic["CreditStoreUI"] = CreditStoreUI
+    this.uiStoreDic["VoucherStoreUI"] = VoucherStoreUI
 
     this.button_Back = this.root.transform:Find("Button_Back"):GetComponent("Button")
     --this.button_Back.onClick.AddListener(StoreUI.OnButtonClick_Back)
@@ -43,12 +44,5 @@ function StoreUI.StoreUIRoot()
     end
 end
 
-function StoreUI.OnShow()
-    this.root:SetActive(true)
 
-end
-function StoreUI.OnHide()
-    this.root:SetActive(false)
-
-end
 

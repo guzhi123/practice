@@ -4,7 +4,7 @@
 --- DateTime: 2023/10/31 17:08
 ---
 
-BagUI={}
+BagUI=UIBase:new()
 local this=BagUI
 BagUI.uiName = "Layout_1/Canvas_Bag"
 function BagUI.Init(root)
@@ -13,9 +13,3 @@ function BagUI.Init(root)
 end
 
 
-function BagUI.OnShow()
-    this.root:SetActive(true)
-end
-function BagUI.OnHide()
-    this.root:SetActive(false)
-end

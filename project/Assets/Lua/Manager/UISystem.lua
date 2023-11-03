@@ -3,6 +3,8 @@
 --- Created by Administrator.
 --- DateTime: 2023/10/26 21:23
 ---
+require("View/UIBase")
+
 require("View/MainUI")
 require("View/StoreUI")
 require("View/OperatorUI")
@@ -11,7 +13,10 @@ require("View/BagUI")
 require("View/TerminalUI")
 
 
+
 require("View/SubViews/CreditStoreUI")
+require("View/SubViews/VoucherStoreUI")
+
 UISystem = {}
 local this = UISystem
 
@@ -41,11 +46,11 @@ function UISystem.SetUIRoot()
 end
 
 function UISystem.OpenView(uiEnum)
-    this.uiDic[uiEnum].OnShow()
+    this.uiDic[uiEnum].OnShow(uiEnum)
 
 end
 
 function UISystem.CloseView(uiEnum)
-    this.uiDic[uiEnum].OnHide()
+    this.uiDic[uiEnum].OnHide(uiEnum)
 
 end

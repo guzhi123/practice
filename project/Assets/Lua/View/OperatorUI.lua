@@ -5,7 +5,7 @@
 ---
 
 UI=CS.UnityEngine.UI
-OperatorUI = {}
+OperatorUI = UIBase:new()
 
 local this=OperatorUI
 OperatorUI.uiName = "Layout_1/Canvas_Operator"
@@ -24,10 +24,3 @@ function OperatorUI.Init(root)
 end
 
 
-
-function OperatorUI.OnShow()
-    this.root:SetActive(true)
-end
-function OperatorUI.OnHide()
-    this.root:SetActive(false)
-end

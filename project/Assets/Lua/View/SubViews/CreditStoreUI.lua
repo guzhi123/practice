@@ -3,16 +3,16 @@
 --- Created by Administrator.
 --- DateTime: 2023/10/28 19:40
 ---
-CreditStoreUI={}
+CreditStoreUI=UIBase:new()
 local this = CreditStoreUI
-this.uiName = "Store/Buttons/Button_credit"
+this.uiName = "Store/Buttons/Button_Credit"
 
 
 function CreditStoreUI.Init(root)
     this.root = root
     this.ifCommodityPrefab = true
-    this.button_credit = this.root:GetComponent("Button")
-    CS.UIUtil.SetButtonEventLua(this.button_credit, this.OnButtonClick_Credit)
+    this.button_Credit = this.root:GetComponent("Button")
+    CS.UIUtil.SetButtonEventLua(this.button_Credit, this.OnButtonClick_Credit)
     this.commodities = this.root.transform:Find("commodities")
     this.commodityPrefab = CS.UIUtil.GetPrefabLua("Prefabs/commodity")
 
@@ -20,7 +20,6 @@ function CreditStoreUI.Init(root)
     --CS.UIUtil.SetButtonEventLua(this.commodityPrefabButton,this.OnButtonClick_Commodities)
 
 end
-
 
 function CreditStoreUI.OnButtonClick_Credit()
 
@@ -35,20 +34,8 @@ function CreditStoreUI.OnButtonClick_Credit()
         end
     end
 
-
 end
 function CreditStoreUI.OnButtonClick_Commodities(img)
     img:SetActive(true)
     CS.UnityEngine.GameObject.Instantiate(this.commodityPrefab, BagUI.articlesParent)
-end
-
-
-
-function CreditStoreUI.OnShow()
-    this.root:SetActive(true)
-    this.ifCommodityPrefab = true
-end
-function CreditStoreUI.OnHide()
-    this.root:SetActive(false)
-
 end
