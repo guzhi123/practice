@@ -3,7 +3,7 @@
 --- Created by Administrator.
 --- DateTime: 2023/10/28 19:40
 ---
-CreditStoreUI=UIBase:new()
+CreditStoreUI=StoreUI:new()
 local this = CreditStoreUI
 this.uiName = "Store/Buttons/Button_Credit"
 

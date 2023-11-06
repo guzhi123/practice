@@ -4,15 +4,19 @@
 --- DateTime: 2023/11/2 20:06
 ---
 
-VoucherStoreUI=UIBase:new()
+VoucherStoreUI=StoreUI:new()
 local this = VoucherStoreUI
 this.uiName = "Store/Buttons/Button_Voucher"
 
 function VoucherStoreUI.Init(root)
     this.root=root
     this.button_Voucher = this.root:GetComponent("Button")
-    CS.UIUtil.SetButtonEventLua(this.button_Voucher, this.OnButtonClick_Credential)
+    this.button_Credential1 = this.root.transform:Find("Voucher/Buttons/Button_1"):GetComponent("Button")
+    CS.UIUtil.SetButtonEventLua(this.button_Credential1, this.OnButtonClick_Credential)
+
     this.Voucher = this.root.transform:Find("Voucher").gameObject
+    CS.UIUtil.SetButtonEventLua(this.button_Voucher,this.OnButtonClick_Voucher)
+
     this.VoucherProductParent = this.root.transform:Find("Voucher/ScrollView_Commodity/Viewport/Content")
     this.VoucherProductPrefab = CS.UIUtil.GetPrefabLua("Prefabs/VoucherProduct")
 
@@ -23,20 +27,26 @@ end
 
 function VoucherStoreUI.OnButtonClick_VoucherProduct(img)
     img:SetActive(true)
-    CS.UnityEngine.GameObject.Instantiate(this.VoucherProductPrefab, BagUI.articlesParent)
+    CS.UnityEngine.GameObject.Instantiate(ItemVoucher.root, BagUI.articlesParent)
+end
+
+function VoucherStoreUI.OnButtonClick_Voucher()
+    this.Voucher:SetActive(true)
 end
 
 function VoucherStoreUI.OnButtonClick_Credential()
 
+    ItemVoucher.Init()
     if this.ifCommodityPrefab then
         this.ifCommodityPrefab = false
         for i = 1, 10, 1 do
-            local go = CS.UnityEngine.GameObject.Instantiate(this.VoucherProductPrefab, this.VoucherProductParent.transform)
+            local go = CS.UnityEngine.GameObject.Instantiate(ItemVoucher.root, this.VoucherProductParent.transform)
             local button = go.transform:Find("Button_VoucherProduct"):GetComponent("Button")
             local img = go.transform:Find("Image_completed").gameObject
-            print(img)
+
             CS.UIUtil.SetButtonEventLua(button, function() this.OnButtonClick_VoucherProduct(img) end)
         end
     end
 
 end
+

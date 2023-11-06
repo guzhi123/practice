@@ -4,12 +4,19 @@
 --- DateTime: 2023/11/3 19:58
 ---
 ItemVoucher = {}
-
-ItemVoucher.name = nil
-ItemVoucher.Price = nil
-ItemVoucher.Discount = nil
-ItemVoucher.Remaining = nil
+local this = ItemVoucher
 
 function ItemVoucher.Init()
 
+    this.name = "寻访凭证"
+    this.price = 450
+    this.discount = 0
+    this.remaining = 2
+
+    this.root=CS.UIUtil.GetPrefabLua("Prefabs/VoucherProduct")
+    this.root.transform:Find("Name/Text_name"):GetComponent("Text").text = this.name
+    print(this.root.transform:Find("Name/Text_name"):GetComponent("Text"))
+    this.root.transform:Find("Price/Text_Price"):GetComponent("Text").text = tostring(this.price)
+    this.root.transform:Find("Discount/Text_discount"):GetComponent("Text").text = tostring(this.discount)
+    this.root.transform:Find("Remaining/Text_remaining"):GetComponent("Text").text = tostring(this.remaining)
 end

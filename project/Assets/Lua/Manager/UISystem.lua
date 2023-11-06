@@ -12,10 +12,11 @@ require("View/SquadsUI")
 require("View/BagUI")
 require("View/TerminalUI")
 
-
-
 require("View/SubViews/CreditStoreUI")
 require("View/SubViews/VoucherStoreUI")
+
+require("Item/ItemVoucher")
+
 
 UISystem = {}
 local this = UISystem

@@ -7,6 +7,13 @@
 UI=CS.UnityEngine.UI
 StoreUI = UIBase:new()
 
+function StoreUI:new()
+    local o = {UIBase:new()}
+    setmetatable(o,{__index = self})
+    return o
+end
+
+
 local this = StoreUI
 this.uiName = "Layout_1/Canvas_Store"
 this.uiStoreDic = {}
@@ -43,6 +50,4 @@ function StoreUI.StoreUIRoot()
         view.Init(root)
     end
 end
-
-
 
