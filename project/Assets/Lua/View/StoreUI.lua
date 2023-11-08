@@ -7,6 +7,8 @@
 UI=CS.UnityEngine.UI
 StoreUI = UIBase:new()
 
+StoreUI.items = {}
+
 function StoreUI:new()
     local o = {UIBase:new()}
     setmetatable(o,{__index = self})
@@ -16,38 +18,33 @@ end
 
 local this = StoreUI
 this.uiName = "Layout_1/Canvas_Store"
-this.uiStoreDic = {}
-this.uiStoreRoot = nil
+
 
 function StoreUI.Init(root)
     this.root = root
-
-    this.uiStoreDic["CreditStoreUI"] = CreditStoreUI
-    this.uiStoreDic["VoucherStoreUI"] = VoucherStoreUI
 
     this.button_Back = this.root.transform:Find("Button_Back"):GetComponent("Button")
     --this.button_Back.onClick.AddListener(StoreUI.OnButtonClick_Back)
     CS.UIUtil.SetButtonEventLua(this.button_Back, this.OnButtonClick_Back)
 
+    ---初始化打开商店的第一个界面
+    StoreUI.currentView = this.root.transform:Find("Store/Buttons/Button_Recommend/Voucher").gameObject
     --StoreUI.OnHide()
-    StoreUI.SetUIRoot()
 end
 
-function StoreUI.SetUIRoot()
-    for key, view in pairs(this.uiStoreDic) do
-        local root = this.root.transform:Find(view.uiName).gameObject
-        view.Init(root)
-    end
-end
 function StoreUI.OnButtonClick_Back()
     UISystem.OpenView(UIEnum.MainUI)
     UISystem.CloseView(UIEnum.StoreUI)
+    StoreUI.ClearItems()
+    CreditStoreUI.ifCommodityPrefab = true
 end
 
-function StoreUI.StoreUIRoot()
-    for key, view in pairs(this.uiStoreDic) do
-        local root = this.root.transform:Find(view.uiName).gameObject
-        view.Init(root)
+function StoreUI.RecordViewButton(gobj)
+    StoreUI.currentView = gobj
+end
+
+function StoreUI.ClearItems()
+    for key, view in pairs(StoreUI.items) do
+        CS.UnityEngine.GameObject.Destroy(view)
     end
 end
-

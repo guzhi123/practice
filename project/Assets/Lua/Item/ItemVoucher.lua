@@ -3,20 +3,23 @@
 --- Created by Administrator.
 --- DateTime: 2023/11/3 19:58
 ---
+
 ItemVoucher = {}
 local this = ItemVoucher
 
 function ItemVoucher.Init()
 
-    this.name = "寻访凭证"
-    this.price = 450
-    this.discount = 0
-    this.remaining = 2
+    this.ItemDate = CS.UIUtil.GetJsonLua("Json/ItemDate")
+    print(this.ItemDate)
+    --this.jsonData = cjson.decode(this.ItemDate)
+    --json.decode(this.ItemDate)
+    this.jsonData = JSON.toJSON(this.ItemDate)
+
 
     this.root=CS.UIUtil.GetPrefabLua("Prefabs/VoucherProduct")
-    this.root.transform:Find("Name/Text_name"):GetComponent("Text").text = this.name
+    this.root.transform:Find("Name/Text_name"):GetComponent("Text").text = this.jsonData.name
     print(this.root.transform:Find("Name/Text_name"):GetComponent("Text"))
-    this.root.transform:Find("Price/Text_Price"):GetComponent("Text").text = tostring(this.price)
-    this.root.transform:Find("Discount/Text_discount"):GetComponent("Text").text = tostring(this.discount)
-    this.root.transform:Find("Remaining/Text_remaining"):GetComponent("Text").text = tostring(this.remaining)
+    this.root.transform:Find("Price/Text_Price"):GetComponent("Text").text = tostring(this.jsonData.price)
+    this.root.transform:Find("Discount/Text_discount"):GetComponent("Text").text = tostring(this.jsonData.discount)
+    this.root.transform:Find("Remaining/Text_remaining"):GetComponent("Text").text = tostring(this.jsonData.remaining)
 end

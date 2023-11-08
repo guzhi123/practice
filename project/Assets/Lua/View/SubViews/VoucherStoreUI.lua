@@ -6,7 +6,7 @@
 
 VoucherStoreUI=StoreUI:new()
 local this = VoucherStoreUI
-this.uiName = "Store/Buttons/Button_Voucher"
+this.uiName = "Layout_1/Canvas_Store/Store/Buttons/Button_Voucher"
 
 function VoucherStoreUI.Init(root)
     this.root=root
@@ -17,7 +17,7 @@ function VoucherStoreUI.Init(root)
     this.Voucher = this.root.transform:Find("Voucher").gameObject
     CS.UIUtil.SetButtonEventLua(this.button_Voucher,this.OnButtonClick_Voucher)
 
-    this.VoucherProductParent = this.root.transform:Find("Voucher/ScrollView_Commodity/Viewport/Content")
+    this.VoucherProductParent = this.root.transform:Find("Voucher/ScrollView_Commoditys/ScrollView_Credential/Viewport/Content")
     this.VoucherProductPrefab = CS.UIUtil.GetPrefabLua("Prefabs/VoucherProduct")
 
     this.ifCommodityPrefab = true
@@ -31,7 +31,10 @@ function VoucherStoreUI.OnButtonClick_VoucherProduct(img)
 end
 
 function VoucherStoreUI.OnButtonClick_Voucher()
-    this.Voucher:SetActive(true)
+
+    StoreUI.currentView:SetActive(false)
+    StoreUI.RecordViewButton(this.Voucher)
+    StoreUI.currentView:SetActive(true)
 end
 
 function VoucherStoreUI.OnButtonClick_Credential()

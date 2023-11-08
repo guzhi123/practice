@@ -33,6 +33,9 @@ function UISystem.Init()
     this.uiDic[UIEnum.BagUI] = BagUI
     this.uiDic[UIEnum.TerminalUI] = TerminalUI
 
+    this.uiDic[UIEnum.CreditStoreUI] = CreditStoreUI
+    this.uiDic[UIEnum.VoucherStoreUI] = VoucherStoreUI
+
     this.uiRoot = CS.UnityEngine.GameObject.Find("UIRoot")
     this.SetUIRoot()
     this.OpenView(UIEnum.MainUI)

@@ -2,6 +2,7 @@ require("LuaTest")
 require("Manager/UISystem")
 require("Enum")
 require("View/UIBase")
+require("Util/JSON")
 
 Main = {}
 

@@ -16,7 +16,7 @@ public class GenerateCommodity : MonoBehaviour
         commodityPrefab = Resources.Load<GameObject>("Prefabs/commodity");
         ifCommodityPrefab = true;
         commodityButton.onClick.AddListener(generateCommodity);
-
+        
     }
     
     

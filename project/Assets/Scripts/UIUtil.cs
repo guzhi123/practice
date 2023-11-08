@@ -22,4 +22,11 @@ public static class UIUtil
         //return GameObject.Instantiate(prefab);
         return Resources.Load<GameObject>(name);
     }
+
+    public static string GetJsonLua(string name)
+    {
+        TextAsset jsonFile = Resources.Load<TextAsset>(name);
+        string jsonString = jsonFile.ToString();
+        return jsonString;
+    }
 }
