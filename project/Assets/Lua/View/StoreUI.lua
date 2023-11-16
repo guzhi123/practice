@@ -37,10 +37,16 @@ function StoreUI.OnButtonClick_Back()
     UISystem.CloseView(UIEnum.StoreUI)
     StoreUI.ClearItems()
     CreditStoreUI.ifCommodityPrefab = true
+    VoucherStoreUI.ResetIfCommodityPrefabDic()
+    print(VoucherStoreUI.ifCommodityPrefabDic["Credential"])
+    ClothingStoreUI.ifCommodityPrefab = true
 end
 
+---关闭之前的view记录当前要打开的view并打开
 function StoreUI.RecordViewButton(gobj)
+    StoreUI.currentView:SetActive(false)
     StoreUI.currentView = gobj
+    StoreUI.currentView:SetActive(true)
 end
 
 function StoreUI.ClearItems()

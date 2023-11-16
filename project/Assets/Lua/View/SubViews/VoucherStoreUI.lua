@@ -7,43 +7,104 @@
 VoucherStoreUI=StoreUI:new()
 local this = VoucherStoreUI
 this.uiName = "Layout_1/Canvas_Store/Store/Buttons/Button_Voucher"
+VoucherStoreUI.ifCommodityPrefabDic = {}
 
 function VoucherStoreUI.Init(root)
     this.root=root
     this.button_Voucher = this.root:GetComponent("Button")
-    this.button_Credential1 = this.root.transform:Find("Voucher/Buttons/Button_1"):GetComponent("Button")
-    CS.UIUtil.SetButtonEventLua(this.button_Credential1, this.OnButtonClick_Credential)
-
     this.Voucher = this.root.transform:Find("Voucher").gameObject
+    this.currentScrollView = this.root.transform:Find("Voucher/ScrollView_Commodity/ScrollView_Credential").gameObject
+    this.ifCommodityPrefabDic["Credential"] = true
+    this.ifCommodityPrefabDic["Senior"] = true
+    this.ifCommodityPrefabDic["General"] = true
+    this.ifCommodityPrefabDic["Procure"] = true
+
+    ---资历凭证
+    this.button_Credential = this.root.transform:Find("Voucher/ScrollView_AreaSelection/Viewport/Content/Button_Credential"):GetComponent("Button")
+    this.buttons_CredentialChildren = this.root.transform:Find("Voucher/Buttons_CredentialChildren").gameObject
+    this.button_Credential_1 = this.root.transform:Find("Voucher/Buttons_CredentialChildren/Button_1"):GetComponent("Button")
+    this.scrollView_Credential = this.root.transform:Find("Voucher/ScrollView_Commodity/ScrollView_Credential").gameObject
+    this.aptitudeVoucherProductParent = this.root.transform:Find("Voucher/ScrollView_Commodity/ScrollView_Credential/Viewport/Content")
+    CS.UIUtil.SetButtonEventLua(this.button_Credential, this.OnButtonClick_Credential)
+    CS.UIUtil.SetButtonEventLua(this.button_Credential_1, this.OnButtonClick_CredentialChild_1)
     CS.UIUtil.SetButtonEventLua(this.button_Voucher,this.OnButtonClick_Voucher)
 
-    this.VoucherProductParent = this.root.transform:Find("Voucher/ScrollView_Commoditys/ScrollView_Credential/Viewport/Content")
-    this.VoucherProductPrefab = CS.UIUtil.GetPrefabLua("Prefabs/VoucherProduct")
+    ---高级凭证
+    this.button_Senior = this.root.transform:Find("Voucher/ScrollView_AreaSelection/Viewport/Content/Button_Senior"):GetComponent("Button")
+    this.scrollView_Senior = this.root.transform:Find("Voucher/ScrollView_Commodity/ScrollView_Senior").gameObject
+    this.seniorVoucherProductParent = this.root.transform:Find("Voucher/ScrollView_Commodity/ScrollView_Senior/Viewport/Content")
+    CS.UIUtil.SetButtonEventLua(this.button_Senior, this.OnButtonClick_Senior)
 
-    this.ifCommodityPrefab = true
-    print(this.VoucherProductPrefab)
+
+    ---通用凭证
+    this.button_General = this.root.transform:Find("Voucher/ScrollView_AreaSelection/Viewport/Content/Button_General"):GetComponent("Button")
+    this.scrollView_General = this.root.transform:Find("Voucher/ScrollView_Commodity/ScrollView_General").gameObject
+    this.generalVoucherProductParent = this.root.transform:Find("Voucher/ScrollView_Commodity/ScrollView_General/Viewport/Content")
+    CS.UIUtil.SetButtonEventLua(this.button_General, this.OnButtonClick_General)
+
+
+    ---采购凭证
+    this.button_Procure = this.root.transform:Find("Voucher/ScrollView_AreaSelection/Viewport/Content/Button_Procure"):GetComponent("Button")
+    this.scrollView_Procure = this.root.transform:Find("Voucher/ScrollView_Commodity/ScrollView_Procure").gameObject
+    this.procureVoucherProductParent = this.root.transform:Find("Voucher/ScrollView_Commodity/ScrollView_Procure/Viewport/Content")
+    CS.UIUtil.SetButtonEventLua(this.button_Procure, this.OnButtonClick_Procure)
+
+
+    ItemVoucher.Init()
     print(this.button_Voucher)
 end
-
+---Item按钮事件方法
 function VoucherStoreUI.OnButtonClick_VoucherProduct(img)
     img:SetActive(true)
     CS.UnityEngine.GameObject.Instantiate(ItemVoucher.root, BagUI.articlesParent)
 end
 
 function VoucherStoreUI.OnButtonClick_Voucher()
-
-    StoreUI.currentView:SetActive(false)
     StoreUI.RecordViewButton(this.Voucher)
-    StoreUI.currentView:SetActive(true)
 end
 
-function VoucherStoreUI.OnButtonClick_Credential()
 
-    ItemVoucher.Init()
-    if this.ifCommodityPrefab then
-        this.ifCommodityPrefab = false
-        for i = 1, 10, 1 do
-            local go = CS.UnityEngine.GameObject.Instantiate(ItemVoucher.root, this.VoucherProductParent.transform)
+function VoucherStoreUI.OnButtonClick_Credential()
+    this.buttons_CredentialChildren:SetActive(true)
+    VoucherStoreUI.RecordScrollViewButton(this.scrollView_Credential)
+end
+
+function VoucherStoreUI.OnButtonClick_CredentialChild_1()
+    print(this.ifCommodityPrefabDic["Credential"])
+    VoucherStoreUI.GenerateItems(10,ItemVoucher.root,this.aptitudeVoucherProductParent,"Credential")
+
+end
+
+
+function VoucherStoreUI.OnButtonClick_Senior()
+
+    this.buttons_CredentialChildren:SetActive(false)
+    VoucherStoreUI.RecordScrollViewButton(this.scrollView_Senior)
+    VoucherStoreUI.GenerateItems(5,ItemVoucher.root,this.seniorVoucherProductParent,"Senior")
+end
+
+
+function VoucherStoreUI.OnButtonClick_General()
+
+    this.buttons_CredentialChildren:SetActive(false)
+    VoucherStoreUI.RecordScrollViewButton(this.scrollView_General)
+    VoucherStoreUI.GenerateItems(3,ItemVoucher.root,this.generalVoucherProductParent,"General")
+end
+
+
+function VoucherStoreUI.OnButtonClick_Procure()
+
+    this.buttons_CredentialChildren:SetActive(false)
+    VoucherStoreUI.RecordScrollViewButton(this.scrollView_Procure)
+    VoucherStoreUI.GenerateItems(15,ItemVoucher.root,this.procureVoucherProductParent,"Procure")
+end
+---生成Item方法
+function VoucherStoreUI.GenerateItems(namber,prefab,parent,name)
+    if this.ifCommodityPrefabDic[name] then
+        this.ifCommodityPrefabDic[name] = false
+        for i = 1, namber, 1 do
+            local go = CS.UnityEngine.GameObject.Instantiate(prefab, parent.transform)
+            table.insert(StoreUI.items,go)
             local button = go.transform:Find("Button_VoucherProduct"):GetComponent("Button")
             local img = go.transform:Find("Image_completed").gameObject
 
@@ -53,3 +114,17 @@ function VoucherStoreUI.OnButtonClick_Credential()
 
 end
 
+---关闭之前的ScrollView记录当前要打开的view并打开
+function VoucherStoreUI.RecordScrollViewButton(gobj)
+    VoucherStoreUI.currentScrollView:SetActive(false)
+    VoucherStoreUI.currentScrollView = gobj
+    VoucherStoreUI.currentScrollView:SetActive(true)
+
+end
+
+
+function VoucherStoreUI.ResetIfCommodityPrefabDic()
+    for key, view in pairs(VoucherStoreUI.ifCommodityPrefabDic) do
+        VoucherStoreUI.ifCommodityPrefabDic[key] = true
+    end
+end

@@ -14,8 +14,11 @@ require("View/TerminalUI")
 
 require("View/SubViews/CreditStoreUI")
 require("View/SubViews/VoucherStoreUI")
+require("View/SubViews/ClothingStoreUI")
+require("View/SubViews/SourceStoneStoreUI")
 
 require("Item/ItemVoucher")
+require("Item/ItemCommoditySourceStone")
 
 
 UISystem = {}
@@ -35,6 +38,8 @@ function UISystem.Init()
 
     this.uiDic[UIEnum.CreditStoreUI] = CreditStoreUI
     this.uiDic[UIEnum.VoucherStoreUI] = VoucherStoreUI
+    this.uiDic[UIEnum.ClothingStoreUI] = ClothingStoreUI
+    --this.uiDic[UIEnum.SourceStoneStoreUI] = SourceStoneStoreUI
 
     this.uiRoot = CS.UnityEngine.GameObject.Find("UIRoot")
     this.SetUIRoot()

@@ -24,9 +24,9 @@ function CreditStoreUI.Init(root)
 end
 
 function CreditStoreUI.OnButtonClick_Credit()
-    StoreUI.currentView:SetActive(false)
+
     StoreUI.RecordViewButton(this.Content)
-    StoreUI.currentView:SetActive(true)
+
     if this.ifCommodityPrefab then
         this.ifCommodityPrefab = false
         for i = 1, 10, 1 do

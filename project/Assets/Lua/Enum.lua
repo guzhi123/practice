@@ -13,3 +13,5 @@ UIEnum.TerminalUI = "TerminalUI"
 
 UIEnum.CreditStoreUI = "CreditStoreUI"
 UIEnum.VoucherStoreUI = "VoucherStoreUI"
+UIEnum.ClothingStoreUI = "ClothingStoreUI"
+UIEnum.SourceStoneStoreUI = "SourceStoneStoreUI"
